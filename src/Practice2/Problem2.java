@@ -11,17 +11,20 @@ class StarTriangle {
     final private int width;
 
     public StarTriangle(int width) {
+        if (width <= 0) {
+            throw new IllegalArgumentException("Width should be positive and non-zero!");
+        }
         this.width = width;
     }
 
     @Override
     public String toString() {
-        StringBuilder repr = new StringBuilder("[*]");
+        StringBuilder string = new StringBuilder("[*]");
 
         for (int i = 2; i <= width; i++) {
-            repr.append("\n").append("[*]".repeat(i));
+            string.append("\n").append("[*]".repeat(i));
         }
 
-        return repr.toString();
+        return string.toString();
     }
 }
