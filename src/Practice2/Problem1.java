@@ -1,5 +1,7 @@
 package Practice2;
 
+import java.time.LocalDate;
+
 public class Problem1 {
     static void main() {
         Student student = new Student("Alexander", 2025);
@@ -13,9 +15,16 @@ public class Problem1 {
 
 class Student {
     private String name;
-    private static int nextId = 0;
     private int id;
     private int year;
+    private static int nextId = 0;
+
+    public Student(String name) {
+        this.name = name;
+        this.year = LocalDate.now().getYear();
+        id = nextId;
+        nextId++;
+    }
 
     public Student(String name, int year) {
         this.name = name;
