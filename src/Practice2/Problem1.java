@@ -5,11 +5,11 @@ import java.time.LocalDate;
 public class Problem1 {
     static void main() {
         Student student = new Student("Alexander", 2025);
-        System.out.println("Name:                   " + student.getName());
-        System.out.println("ID:                     " + student.getId());
-        System.out.println("Year:                   " + student.getYear());
+        System.out.printf("%-35s %s\n", "Name", student.getName());
+        System.out.printf("%-35s %s\n", "ID:", student.getId());
+        System.out.printf("%-35s %s\n", "Year:", student.getYear());
         student.incrementYear();
-        System.out.println("Year (after increment): " + student.getYear());
+        System.out.printf("%-35s %s\n", "Year (after increment):", student.getYear());
     }
 }
 
