@@ -5,17 +5,17 @@ import java.time.LocalDate;
 public class Problem1 {
     static void main() {
         Student student = new Student("Alexander", 2025);
-        System.out.println(student.getName());
-        System.out.println(student.getId());
-        System.out.println(student.getYear());
+        System.out.println("Name:                   " + student.getName());
+        System.out.println("ID:                     " + student.getId());
+        System.out.println("Year:                   " + student.getYear());
         student.incrementYear();
-        System.out.println(student.getYear());
+        System.out.println("Year (after increment): " + student.getYear());
     }
 }
 
 class Student {
-    private String name;
-    private int id;
+    final private String name;
+    final private int id;
     private int year;
     private static int nextId = 0;
 
@@ -30,7 +30,7 @@ class Student {
         this.name = name;
         this.year = year;
         id = nextId;
-        nextId += 1;
+        nextId++;
     }
 
     public String getName() {
