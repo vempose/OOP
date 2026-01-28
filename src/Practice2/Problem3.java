@@ -33,11 +33,11 @@ class Time {
         this.second = second;
     }
 
-    public String toStandard() {
+    public String toUniversal() {
         return String.format("%02d:%02d:%02d", hour, minute, second);
     }
 
-    public String toUniversal() {
+    public String toStandard() {
         int universalHour;
         String timeFrame;
 
