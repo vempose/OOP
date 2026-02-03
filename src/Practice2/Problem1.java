@@ -46,7 +46,7 @@ class Student {
     }
 
     public void incrementYear() {
-        year += 1;
+        year++;
     }
 
     public void incrementYear(int i) {
