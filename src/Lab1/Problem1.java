@@ -65,8 +65,8 @@ class Analyzer {
             }
         }
 
-        System.out.println("Average = " + data.getAverage());
-        System.out.println("Maximum = " + data.getLargest());
+        System.out.printf("Average = %.1f\n", data.getAverage());
+        System.out.printf("Maximum = %.1f\n", data.getLargest());
 
         scanner.close();
     }

@@ -13,7 +13,7 @@ public class Problem3 {
         temp.setBoth(10, 'c');
         System.out.println("After 2nd change:\n" + temp);
 
-        System.out.println("Get Fahrenheit" + temp.getFahrenheit() + " F");
+        System.out.println("Get Fahrenheit: " + temp.getFahrenheit() + " F");
     }
 }
 
@@ -76,7 +76,7 @@ class Temperature {
     public void setScale(char scale) {
         var unifiedScale = Character.toUpperCase(scale);
         if (!(unifiedScale == 'C' || unifiedScale == 'F')) {
-            throw new IllegalArgumentException("For the scale only 'C' and 'F' are allowed.");
+            throw new IllegalArgumentException("Invalid argument: only 'C' and 'F' are allowed!");
         }
         this.scale = unifiedScale;
     }
