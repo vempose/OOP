@@ -1,6 +1,7 @@
 package Lab1;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Problem5 {
     public static void main(String[] args) {
@@ -31,28 +32,27 @@ enum Gender {
 }
 
 class Person {
-    private Gender gender;
+    private final Gender gender;
 
     public Person(Gender gender) {
         this.gender = gender;
     }
 
     public Gender getGender() {
-        return this.gender;
+        return gender;
     }
 
     @Override
     public String toString() {
-        // Returns "B" for BOY and "G" for GIRL
-        return gender == Gender.BOY ? "B" : "G";
+        return gender == Gender.BOY ? "Boy" : "Girl";
     }
 }
 
 class DragonLaunch {
-    private Vector<Person> kidnapped;
+    private List<Person> kidnapped;
 
     public DragonLaunch() {
-        kidnapped = new Vector<>();
+        kidnapped = new ArrayList<Person>();
     }
 
     public void kidnap(Person p) {
