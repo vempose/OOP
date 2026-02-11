@@ -13,67 +13,79 @@ public class Problem4 {
         students.add(new Student("Elena"));
 
         Course course = new Course("OOP", "Some good course", 4, prerequisites);
-
         GradeBook gradeBook = new GradeBook(course, students);
-        System.out.println("Max: " + gradeBook.getMax().getValue() + "\nMin: " + gradeBook.getMin().getValue());
+        System.out.println(gradeBook);
     }
 }
 
 class GradeBook {
     Course course;
-    List<Student> students;
-    Map<Student, Double> marks = new LinkedHashMap<>(); // to preserve order
+    List<GradeBookEntry> entries;
 
     public GradeBook(Course course, List<Student> students) {
         this.course = course;
-        this.students = students;
+        entries = new ArrayList<GradeBookEntry>();
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please, input grades for students:\n");
+        displayMessage();
+
+        System.out.println("Please, enter mark for the following students:");
         for (Student student : students) {
-            System.out.print(student.getName() + ": ");
-            marks.put(student, in.nextDouble());
+            double mark = getValidatedMark(student.getName());
+            GradeBookEntry entry = new GradeBookEntry(student, mark);
+            entries.add(entry);
         }
     }
 
     public void displayMessage() {
-        System.out.println("Welcome to the grade book for CS101 Object-oriented Programming and Design!");
+        System.out.printf("Welcome to the grade book for %s!\n\n", course.getName());
+    }
+
+    private double getValidatedMark(String studentName) {
+        Scanner in = new Scanner(System.in);
+
+        while (true) {
+            System.out.print(studentName + ": ");
+            String input = in.next();
+
+            double mark;
+            try {
+                mark = Double.parseDouble(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Enter valid number! Try again.");
+                continue;
+            }
+
+            return mark;
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        entries.forEach(entry -> output.append(String.format("ID:\t\t\t\t%d\nName:\t\t\t%s\nMark:\t\t\t%.2f\n",
+                entry.getId(), entry.getStudentName(), entry.getMark()))
+        );
+
+        return output.toString();
     }
 
     public double getAverage() {
-        double sum = 0.0;
-        int count = 0;
-
-        for (double mark : marks.values()) {
-            sum += mark;
-            count++;
-        }
-
-        return sum / count;
+        return entries.stream()
+                .mapToDouble(GradeBookEntry::getMark)
+                .average()
+                .orElse(0.0);
     }
 
-    public Map.Entry<Student, Double> getMax() {
-        Map.Entry<Student, Double> maxEntry = null;
-
-        for (Map.Entry<Student, Double> entry : marks.entrySet()) {
-            if (maxEntry == null || entry.getValue() > maxEntry.getValue()) {
-                maxEntry = entry;
-            }
-        }
-
-        return maxEntry;
+    public GradeBookEntry getMaxEntry() {
+        return entries.stream()
+                .max(Comparator.comparing(GradeBookEntry::getMark))
+                .orElseThrow(NoSuchElementException::new);
     }
 
-    public Map.Entry<Student, Double> getMin() {
-        Map.Entry<Student, Double> minEntry = null;
-
-        for (Map.Entry<Student, Double> entry : marks.entrySet()) {
-            if (minEntry == null || entry.getValue() < minEntry.getValue()) {
-                minEntry = entry;
-            }
-        }
-
-        return minEntry;
+    public GradeBookEntry getMinEntry() {
+        return entries.stream()
+                .min(Comparator.comparing(GradeBookEntry::getMark))
+                .orElseThrow(NoSuchElementException::new);
     }
 }
 
@@ -96,5 +108,39 @@ class Course {
                 "Course name: %s\nDescription: %s\nNumber of credits: %d\nPrerequisites: %s",
                 name, description, numOfCredits, String.join(", ", prerequisites)
         );
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getNumOfCredits() {
+        return numOfCredits;
+    }
+}
+
+class GradeBookEntry {
+    private final Student student;
+    private final double mark;
+
+    public GradeBookEntry(Student student, double mark) {
+        this.student = student;
+        this.mark = mark;
+    }
+
+    public int getId() {
+        return student.getId();
+    }
+
+    public String getStudentName() {
+        return student.getName();
+    }
+
+    public double getMark() {
+        return mark;
     }
 }
