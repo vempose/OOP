@@ -14,12 +14,15 @@ public class PersonRegistry {
         members.remove(person);
     }
 
-    public void print() {
-        members.forEach(person -> {
-            System.out.printf("%s: %s\n",
-                    person.getName(),
-                    person.getPet() != null ? person.getPet() : "No pet");
-        });
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+
+        members.forEach(person -> result.append(String.format("%s: %s\n",
+                person.getName(),
+                person.getPet() != null ? person.getPet() : "No pet")));
+
+        return result.toString();
     }
 
     public List<Person> getMembersWithPet() {

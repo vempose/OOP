@@ -31,7 +31,11 @@ public abstract class Person {
     }
 
     public void setPet(Animal pet) {
-        this.pet = pet;
+        if (getPet() == null || pet == null) {
+            this.pet = pet;
+        } else {
+            throw new IllegalStateException(name + " already have a pet, so it's impossible to assign a pet to that person.");
+        }
     }
 
     public void removePet() {
@@ -40,6 +44,16 @@ public abstract class Person {
 
     public boolean hasPet() {
         return pet != null;
+    }
+
+    public void leavePetWith(Person person) {
+        person.setPet(pet);
+        this.removePet();
+    }
+
+    public void retrievePetFrom(Person person) {
+        pet = person.getPet();
+        person.removePet();
     }
 
     abstract String getOccupation();

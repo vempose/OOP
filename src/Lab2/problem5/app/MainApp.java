@@ -4,22 +4,22 @@ import Lab2.problem5.model.*;
 
 public class MainApp {
     static void main() {
-        Dog dog = new Dog("Blob", 1);
-        Cat cat = new Cat("Murka", 2);
-
-        Student s = new PhDStudent("Alexander", 20, "Computer Science", "Aboba", cat);
-        Student s2 = new Student("John", 21, "CS", dog);
-        PhDStudent p = new PhDStudent("Alex", 24, "CI", "ML");
-
+        Person john = new Employee("John", 30, "Engineer");
+        Person alice = new PhDStudent("Alice", 26, "Comp. Science", "AI");
+        Animal murka = new Cat("Murka", 5);
+        john.setPet(murka); // John owns Murka
         PersonRegistry registry = new PersonRegistry();
-        registry.addPerson(s);
-        registry.addPerson(s2);
-        registry.addPerson(p);
 
-        registry.print();
+        registry.addPerson(john);
+        registry.addPerson(alice);
 
-        registry.removePerson(p);
-
-        registry.print();
+        // John goes on vacation and leaves Murka with Alice
+        john.leavePetWith(alice);
+        // Registry reflects that Alice is taking care of Murka
+        System.out.println(registry);
+        // John returns from vacation and retrieves Murka
+        john.retrievePetFrom(alice);
+        // Registry reflects that John has his dog back
+        System.out.println(registry);
     }
 }
