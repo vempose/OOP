@@ -11,12 +11,25 @@ public class PhDStudent extends Student {
     }
 
     public PhDStudent(String name, int age, String major, String researchTopic, Animal pet) {
+        if (pet instanceof Dog) {
+            throw new IllegalArgumentException("PhD Student can't have a dog as a pet!");
+        }
+
         super(name, age, major, pet);
         this.researchTopic = researchTopic;
     }
 
     public String getResearchTopic() {
         return researchTopic;
+    }
+
+    @Override
+    public void setPet(Animal pet) {
+        if (pet instanceof Dog) {
+            throw new IllegalArgumentException("PhD Student can't have a dog as a pet!");
+        }
+
+        super.setPet(pet);
     }
 
     @Override

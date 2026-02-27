@@ -77,4 +77,5 @@ class DragonLaunch {
 
         return (strayGirls + boysCounter) > 0;
     }
+
 }

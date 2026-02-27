@@ -132,6 +132,10 @@ class GradeBookEntry {
         this.mark = mark;
     }
 
+//    public GradeBookEntry(Student student) {
+//        this.student = student;
+//    }
+
     public int getId() {
         return student.getId();
     }
