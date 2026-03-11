@@ -1,9 +1,10 @@
 package Lab2.problem3.model;
 
-public abstract class Account {
+public class Account {
     private double balance; // The current balance
     private final int id; // The account number
     private static int nextId = 1;
+    private boolean isOpen = true;
 
     public Account() {
         balance = 0.0;
@@ -22,15 +23,30 @@ public abstract class Account {
     }
 
     public void deposit(double sum) {
-        balance += sum;
+        if (isOpen) {
+            balance += sum;
+        } else {
+            throw new RuntimeException("Account is closed, so no actions allowed.");
+        }
     }
 
     public void withdraw(double sum) {
-        if (balance - sum < 0) {
-            throw new RuntimeException("The balance cannot be negative!");
+        if (isOpen) {
+            if (balance - sum < 0) {
+                throw new RuntimeException("The balance cannot be negative!");
+            }
+            balance -= sum;
+        } else {
+            throw new RuntimeException("Account is closed, so no actions allowed.");
         }
+    }
 
-        balance -= sum;
+    public void open() {
+        isOpen = true;
+    }
+
+    public void close() {
+        isOpen = false;
     }
 
     public double getBalance() {

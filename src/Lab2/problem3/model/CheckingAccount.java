@@ -9,6 +9,10 @@ public class CheckingAccount extends Account {
         super();
     }
 
+    public CheckingAccount(double initialBalance) {
+        super(initialBalance);
+    }
+
     public void deductFee() {
         withdraw(FEE);
     }
