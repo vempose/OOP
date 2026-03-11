@@ -22,7 +22,7 @@ public class Series extends Circuit {
     }
 
     @Override
-    public void applyPotentialDiff(double voltage) {
+    public void setPotentialDiff(double voltage) {
         this.potentialDifference = voltage;
 
         double totalResistance = getResistance();
@@ -31,7 +31,7 @@ public class Series extends Circuit {
         double v1 = current * first.getResistance();
         double v2 = current * second.getResistance();
 
-        first.applyPotentialDiff(v1);
-        second.applyPotentialDiff(v2);
+        first.setPotentialDiff(v1);
+        second.setPotentialDiff(v2);
     }
 }

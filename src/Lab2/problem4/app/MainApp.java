@@ -19,7 +19,7 @@ public class MainApp {
         double resistance = circuit.getResistance();
         System.out.printf("Equivalent resistance = %.2f\n", resistance);
 
-        circuit.applyPotentialDiff(12.0);
+        circuit.setPotentialDiff(12.0);
 
         System.out.printf("Circuit voltage = %.2f\n", circuit.getPotentialDiff());
         System.out.printf("Circuit current = %.2f\n", circuit.getCurrent());

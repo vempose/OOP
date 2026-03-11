@@ -11,9 +11,9 @@ public class Knight extends Piece {
             return false;
         }
 
-        int dr = rowDiff(pos);
-        int dc = colDiff(pos);
+        int rowDiff = rowDiff(pos);
+        int colDiff = colDiff(pos);
 
-        return (dr == 2 && dc == 1) || (dr == 1 && dc == 2);
+        return (rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2);
     }
 }

@@ -11,21 +11,21 @@ public abstract class Piece {
         return pos;
     }
 
-    public void setPosition(Position a) {
-        this.pos = a;
+    public void setPosition(Position pos) {
+        this.pos = pos;
     }
 
-    public abstract boolean isLegalMove(Position b);
+    public abstract boolean isLegalMove(Position pos);
 
-    protected int rowDiff(Position b) {
-        return Math.abs(pos.getRow() - b.getRow());
+    protected int rowDiff(Position pos) {
+        return Math.abs(this.pos.getRow() - pos.getRow());
     }
 
-    protected int colDiff(Position b) {
-        return Math.abs(pos.getCol() - b.getCol());
+    protected int colDiff(Position pos) {
+        return Math.abs(this.pos.getCol() - pos.getCol());
     }
 
-    protected boolean isSamePosition(Position b) {
-        return pos.sameAs(b);
+    protected boolean isSamePosition(Position pos) {
+        return this.pos.sameAs(pos);
     }
 }

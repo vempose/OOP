@@ -20,7 +20,7 @@ public class Resistor extends Circuit {
     }
 
     @Override
-    public void applyPotentialDiff(double voltage) {
+    public void setPotentialDiff(double voltage) {
         this.potentialDifference = voltage;
     }
 }

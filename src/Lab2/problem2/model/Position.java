@@ -20,8 +20,8 @@ public class Position {
         return col;
     }
 
-    public boolean sameAs(Position other) {
-        return this.row == other.row && this.col == other.col;
+    public boolean sameAs(Position otherPos) {
+        return this.row == otherPos.row && this.col == otherPos.col;
     }
 
     @Override
