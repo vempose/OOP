@@ -1,6 +1,6 @@
 package Practice4.bonus.app;
 
-import Practice4.bonus.models.CountingSort;
+import Practice4.bonus.model.CountingSort;
 
 import java.util.ArrayList;
 import java.util.List;

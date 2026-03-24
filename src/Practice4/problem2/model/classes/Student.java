@@ -1,9 +1,9 @@
-package Practice4.problem2.models;
+package Practice4.problem2.model.classes;
 
-import Practice4.problem2.interfaces.CanHavePizza;
-import Practice4.problem2.interfaces.CanHaveRetake;
-import Practice4.problem2.interfaces.Danceable;
-import Practice4.problem2.interfaces.Movable;
+import Practice4.problem2.model.interfaces.CanHavePizza;
+import Practice4.problem2.model.interfaces.CanHaveRetake;
+import Practice4.problem2.model.interfaces.Danceable;
+import Practice4.problem2.model.interfaces.Movable;
 
 public class Student extends Person implements CanHavePizza, CanHaveRetake, Movable, Danceable {
     @Override

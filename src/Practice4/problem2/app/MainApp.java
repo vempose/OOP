@@ -1,9 +1,9 @@
 package Practice4.problem2.app;
 
-import Practice4.problem2.models.Cat;
-import Practice4.problem2.models.Person;
-import Practice4.problem2.models.Restaurant;
-import Practice4.problem2.models.Student;
+import Practice4.problem2.model.classes.Cat;
+import Practice4.problem2.model.classes.Person;
+import Practice4.problem2.model.classes.Student;
+import Practice4.problem2.services.Restaurant;
 
 public class MainApp {
     static void main() {

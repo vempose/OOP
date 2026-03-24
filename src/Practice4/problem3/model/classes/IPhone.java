@@ -1,6 +1,6 @@
-package Practice4.problem3.models;
+package Practice4.problem3.model.classes;
 
-import Practice4.problem3.interfaces.SellableAndPluggable;
+import Practice4.problem3.model.interfaces.SellableAndPluggable;
 
 public class IPhone implements SellableAndPluggable {
     @Override

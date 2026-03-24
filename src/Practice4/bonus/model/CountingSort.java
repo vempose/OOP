@@ -1,6 +1,8 @@
-package Practice4.bonus.models;
+package Practice4.bonus.model;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CountingSort {
     public static void sort(List<Integer> list) {

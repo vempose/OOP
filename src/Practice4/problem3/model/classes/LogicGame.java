@@ -1,6 +1,6 @@
-package Practice4.problem3.models;
+package Practice4.problem3.model.classes;
 
-import Practice4.problem3.interfaces.Game;
+import Practice4.problem3.model.interfaces.Game;
 
 public class LogicGame implements Game {
     @Override

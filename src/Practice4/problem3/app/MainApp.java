@@ -1,9 +1,9 @@
 package Practice4.problem3.app;
 
-import Practice4.problem3.interfaces.Game;
-import Practice4.problem3.models.IPhone;
-import Practice4.problem3.models.LogicGame;
-import Practice4.problem3.models.MemoryGame;
+import Practice4.problem3.model.classes.IPhone;
+import Practice4.problem3.model.classes.LogicGame;
+import Practice4.problem3.model.classes.MemoryGame;
+import Practice4.problem3.model.interfaces.Game;
 
 public class MainApp {
     static void getStatistics(Game g) {
