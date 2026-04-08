@@ -1,18 +1,6 @@
-package Practice2;
+package Practice2.problem3.models;
 
-public class Problem3 {
-    static void main() {
-        Time time1 = new Time(10, 0, 0);
-        Time time2 = new Time(5, 5, 5);
-        System.out.printf("%-35s %s\n", "Time1:", time1.toUniversal());
-        System.out.printf("%-35s %s\n", "Time2", time2.toUniversal());
-
-        time1.add(time2);
-        System.out.printf("%-35s %s\n", "Time1 after adding Time2 to it:", time1.toUniversal());
-    }
-}
-
-class Time {
+public class Time implements Comparable<Time> {
     private int hour;
     private int minute;
     private int second;
@@ -77,5 +65,16 @@ class Time {
         hour += minute / 60;
         minute %= 60;
         hour = (hour > 23) ? hour - 24 : hour;
+    }
+
+    @Override
+    public int compareTo(Time other) {
+        if (this.hour != other.hour) {
+            return Integer.compare(this.hour, other.hour);
+        }
+        if (this.minute != other.minute) {
+            return Integer.compare(this.minute, other.minute);
+        }
+        return Integer.compare(this.second, other.second);
     }
 }
